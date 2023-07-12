@@ -1,4 +1,24 @@
 {
+  "api": {
+    "socially": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-05-07T01:14:42.236Z",
+              "apiKeyExpirationDays": 300,
+              "description": "socially"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
   "auth": {
     "socially39696aaa": {
       "customAuth": false,

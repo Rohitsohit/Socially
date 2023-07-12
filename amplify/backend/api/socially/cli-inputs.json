@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "socially",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 300,
+      "apiKeyExpirationDate": "2024-05-07T01:14:42.236Z",
+      "keyDescription": "socially"
+    }
+  }
+}
