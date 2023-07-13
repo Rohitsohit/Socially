@@ -17,6 +17,9 @@
       },
       "api": {
         "socially": {}
+      },
+      "storage": {
+        "socially": {}
       }
     }
   }

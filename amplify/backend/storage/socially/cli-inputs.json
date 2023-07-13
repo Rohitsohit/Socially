@@ -1,0 +1,14 @@
+{
+  "resourceName": "socially",
+  "policyUUID": "1c2bd105",
+  "bucketName": "sociallyb4a4c1868a584eb58fcaf25ed6a9917d",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

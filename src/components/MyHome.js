@@ -7,7 +7,7 @@ import MyCards from './MyCards';
   return (
     
     <>
-   <MyForm></MyForm>
+   <MyForm username={user.username}></MyForm>
    <MyCards username={user.username}></MyCards>
     </>
   

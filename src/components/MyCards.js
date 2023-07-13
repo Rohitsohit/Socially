@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { API } from 'aws-amplify';
+import { API,Storage } from 'aws-amplify';
 import {listFromData } from "../graphql/queries";
 import {Loader } from '@aws-amplify/ui-react';
 import MyCard from "./MyCard";
@@ -14,6 +14,7 @@ export default function MyCards(email) {
     let response= await API.graphql({query:listFromData});
     setCardData(response.data.listFromData.items);
     }
+
     
   return (
     <div>

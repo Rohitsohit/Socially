@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import {API, graphqlOperation } from 'aws-amplify';
+import {API } from 'aws-amplify';
 import {getFromData} from '../graphql/queries'
 import { Button, Flex, TextField } from '@aws-amplify/ui-react';
 import { Text ,Divider} from '@aws-amplify/ui-react';
@@ -8,13 +8,19 @@ import {Card,Image,View,Heading,Badge,useTheme} from '@aws-amplify/ui-react';
 import Comment from './Comment';
 import {updateFromData} from '../graphql/mutations'
 export default function MyComments() {
+  
   const { postId, name } = useParams();
-  const [post, setpost] = useState([]);
+  const [post, setpost] = useState();
   const { tokens } = useTheme();
   var commentObj = {
     message:"",
     username:""
   }
+  var totalLikes =0;
+  if(post){
+     totalLikes =post.likes.length;
+  }
+  
   useEffect(() => {
     fetchPost();
   }, [])
@@ -75,7 +81,7 @@ const handleSend = async (e) => {
             <Text as="span">
             {post.description}
             </Text>
-            <Text variation="primary">Likes</Text>
+            <Text variation="primary">{totalLikes} Likes</Text>
           </Flex>
         </Flex>
       </Card>
