@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { API,Storage } from 'aws-amplify';
-import { Button, View,Flex, TextField,FileUploader } from '@aws-amplify/ui-react';
+import { Button,Flex, TextField,FileUploader } from '@aws-amplify/ui-react';
 import { createFromData } from '../graphql/mutations';
 
 export default function MyForm(username) {

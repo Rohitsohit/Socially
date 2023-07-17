@@ -12,3 +12,10 @@ type fromData @model{
  comments : [String]!
  imageurl:String
 }
+
+type userData @model{
+ id : ID!
+ user:String
+ friends : [String]!
+ friendRequest :[String]!
+}

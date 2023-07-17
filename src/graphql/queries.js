@@ -43,3 +43,37 @@ export const listFromData = /* GraphQL */ `
     }
   }
 `;
+export const getUserData = /* GraphQL */ `
+  query GetUserData($id: ID!) {
+    getUserData(id: $id) {
+      id
+      user
+      friends
+      friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listUserData = /* GraphQL */ `
+  query ListUserData(
+    $filter: ModelUserDataFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUserData(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        user
+        friends
+        friendRequest
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;

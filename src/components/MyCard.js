@@ -6,7 +6,7 @@ import { updateFromData } from '../graphql/mutations';
 import config from '../aws-exports'
 Amplify.configure(config)
 export default function MyCard(card) {
-  console.log(card.card.imageurl)
+
   const history = useNavigate();
   const { tokens } = useTheme();
 

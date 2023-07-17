@@ -52,3 +52,42 @@ export const onDeleteFromData = /* GraphQL */ `
     }
   }
 `;
+export const onCreateUserData = /* GraphQL */ `
+  subscription OnCreateUserData($filter: ModelSubscriptionUserDataFilterInput) {
+    onCreateUserData(filter: $filter) {
+      id
+      user
+      friends
+      friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateUserData = /* GraphQL */ `
+  subscription OnUpdateUserData($filter: ModelSubscriptionUserDataFilterInput) {
+    onUpdateUserData(filter: $filter) {
+      id
+      user
+      friends
+      friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteUserData = /* GraphQL */ `
+  subscription OnDeleteUserData($filter: ModelSubscriptionUserDataFilterInput) {
+    onDeleteUserData(filter: $filter) {
+      id
+      user
+      friends
+      friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
