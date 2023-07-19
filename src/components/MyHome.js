@@ -3,9 +3,12 @@ import MyForm from './MyForm';
 import MyCards from './MyCards';
 import MyFriends from './MyFriends';
 import SearchFriend from './SearchFriend';
+import '../css/home.css'
 import { API} from 'aws-amplify';
 import { listUserData } from '../graphql/queries';
 import FriendRequest from './FriendRequest';
+import FaceLogin from './FaceLogin';
+
  function MyHome(user) {
 
   const [userLogin, setUserLogin] = useState();
@@ -23,18 +26,56 @@ import FriendRequest from './FriendRequest';
     const loginUser = users.find(obj => obj.user === user.username);
     setUserLogin(loginUser);
   }
+
+ 
   
   return (
     
     <>
-   {/* <MyForm username={user.username}></MyForm> */}
-   {/* <MyFriends username={user.username}></MyFriends> */}
+    
 
-   {/* <SearchFriend username={user.username} ></SearchFriend>
+   <SearchFriend username={user.username} ></SearchFriend>
+    {/*
    {!userLogin?(<></>):(<FriendRequest user={userLogin}></FriendRequest>)
    } */}
     
-   {/* <MyCards username={user.username}></MyCards> */}
+   {!userLogin ?(<>...</>):(
+   <div className="container">
+   <div className="left-sidebar">
+     <h3>Friend List</h3>
+     <ul>
+       
+
+    <MyFriends username={userLogin}></MyFriends>
+     </ul>
+   </div>
+   <div className="center-content">
+     <h3>Posts</h3>
+     <MyCards username={userLogin.user}></MyCards>
+     {/* {posts.map((post) => (
+       <div key={post.id} className="post-item">
+         <h4>{post.title}</h4>
+         <p>{post.content}</p>
+       </div>
+     ))} */}
+   </div>
+   <div className="right-sidebar">
+     <h3>Friends to Message</h3>
+     <ul>
+       Friends to message
+       {/* {friendsToMessage.map((friend) => (
+         <li key={friend}>{friend}</li>
+       ))} */}
+     </ul>
+   </div>
+ </div>
+   
+   )}
+
+   
+
+
+
     </>
   
   )

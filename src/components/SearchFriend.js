@@ -35,7 +35,8 @@ export default function SearchFriend(user) {
       }
 
 
-const handleAddFriend = async()=>{
+const handleAddFriend = async(e)=>{
+  e.preventDefault();
   if(userFound && userLogin){
     console.log(userFound)
     userFound.friendRequest.push(userLogin.user);

@@ -1,0 +1,183 @@
+/* Add this CSS to your existing styles */
+
+.custom-card {
+    width: 75%;
+    margin-right: 20px;
+    margin-left: 10%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #fff;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-card:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .custom-card .card__img,
+  .custom-card .card__img--hover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .custom-card .card__info-hover {
+    position: absolute;
+    padding: 16px;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+  }
+  
+  .custom-card .card__img--hover {
+    transition: 0.2s all ease-out;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    opacity: 0.3;
+  }
+  
+  .custom-card:hover .card__info {
+    background-color: transparent;
+    position: relative;
+  }
+  
+  .custom-card:hover .card__info-hover {
+    opacity: 1;
+  }
+  
+  .custom-card .card__like {
+    width: 20px;
+  }
+  
+  .custom-card .card__clock {
+    width: 15px;
+    vertical-align: middle;
+    fill: #ad7d52;
+  }
+  
+  .custom-card .card__time {
+    font-size: 12px;
+    color: #ad7d52;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+  
+  .custom-card .card__clock-info {
+    float: right;
+  }
+  
+  .custom-card .card_link {
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .custom-card .card__info {
+    z-index: 2;
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+  }
+  
+  .custom-card .card__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #868686;
+  }
+  
+  .custom-card .card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  
+  .custom-card .card:hover .card__img--hover {
+    height: 100%;
+    opacity: 0.3;
+  }
+  .custom-card {
+    width: 70%;
+    max-width: 400px; /* You can adjust this value as needed */
+    /* The rest of your existing styles... */
+  }
+  
+  .custom-card .card__img,
+  .custom-card .card__img--hover {
+    height: 200px; /* You can adjust this height as needed */
+    /* The rest of your existing styles... */
+  }
+
+  .custom-card {
+    width: 70%;
+    max-width: 400px;
+    /* ...Rest of your existing styles... */
+  }
+  
+  .custom-card .card__info {
+    background-color: transparent; /* Set the background to transparent */
+    position: relative;
+    padding: 16px;
+    z-index: 2;
+  }
+  
+  .custom-card .card__category,
+  .custom-card .card__title,
+  .custom-card .card__by {
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent background */
+    padding: 8px; /* Add some padding for readability */
+    border-radius: 6px; /* Add rounded corners */
+  }
+  
+  .custom-card .card__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #868686;
+  }
+  
+  .custom-card .card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .custom-card .card__by {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+  }
+  
+  .custom-card .card__author {
+    font-weight: 700;
+    text-decoration: none;
+    color: #ad7d52;
+  }
+  
+  .custom-card .card__comment {
+    font-weight: 800;
+    text-decoration: none;
+    color: #ad7d52;
+  }
+  
+  /* Adjust the font color for better contrast on the transparent background */
+  .custom-card .card__category,
+  .custom-card .card__title,
+  .custom-card .card__by {
+    color: #333; /* Change the font color to your preferred value */
+  }
+  

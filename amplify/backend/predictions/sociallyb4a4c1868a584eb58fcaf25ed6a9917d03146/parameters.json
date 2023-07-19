@@ -1,0 +1,18 @@
+{
+    "resourceName": "sociallyb4a4c1868a584eb58fcaf25ed6a9917d03146",
+    "identifyPolicyName": "identifyPolicyfd49aa57",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "adminAuthProtected": "DISALLOW",
+    "adminGuestProtected": "DISALLOW",
+    "identifyType": "identifyEntities",
+    "access": "authAndGuest",
+    "celebrityDetectionEnabled": true,
+    "maxEntities": 0,
+    "adminTask": false,
+    "folderPolicies": ""
+}

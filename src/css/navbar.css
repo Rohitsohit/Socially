@@ -1,0 +1,31 @@
+.navbar {
+    display: flex; /* Set the display to flex to create a horizontal layout */
+    align-items: center; /* Align items in the center */
+    background-color: #f0f0f0; /* Add a background color for the navbar */
+    padding: 10px; /* Add padding around the navbar items */
+  }
+  
+  .menu-item {
+    padding: 8px 12px; /* Adjust padding to provide space around the menu items */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .menu-item:hover {
+    background-color: #ddd; /* Change the background color on hover for visual feedback */
+  }
+
+  .custom-icon {
+    font-size: 40px; /* Adjust the size as per your requirement */
+  }
+  
+  
+  
+  
+  
+  
+  
+  

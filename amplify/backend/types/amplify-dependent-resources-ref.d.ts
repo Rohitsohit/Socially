@@ -17,6 +17,13 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     }
   },
+  "predictions": {
+    "sociallyb4a4c1868a584eb58fcaf25ed6a9917d03146": {
+      "celebrityDetectionEnabled": "string",
+      "maxEntities": "string",
+      "region": "string"
+    }
+  },
   "storage": {
     "socially": {
       "BucketName": "string",

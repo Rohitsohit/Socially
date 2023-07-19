@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .left-sidebar,
+  .right-sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .left-sidebar h3,
+  .center-content h3,
+  .right-sidebar h3 {
+    margin-bottom: 10px;
+  }
+  
+  .post-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .center-content {
+    flex: 3;
+    padding: 20px;
+  }
+  

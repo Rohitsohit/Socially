@@ -58,43 +58,41 @@ export default function MyCard(card) {
   }
     
   return (
-        <View
-      backgroundColor={tokens.colors.background.secondary}
-      padding={tokens.space.medium}
-    >
-      <Card>
-        <Flex direction="row" alignItems="flex-start">
-          <Image
-            alt="Road to milford sound"
-            src={card.card.imageurl}
-            width="33%"
-          />
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            gap={tokens.space.xs}
-          >
-            <Flex>
-              <Badge size="small" variation="info">
-                {card.card.tags}
-              </Badge>
-              <Badge size="small" variation="success">
-                Verified
-              </Badge>
-            </Flex>
+        
 
-            <Heading level={5}>
-              {card.card.title}
-            </Heading>
+      
 
-            <Text as="span">
-            {card.card.description}
-            </Text>
-            <Button variation="primary" onClick={handleLike}>{card.card.likes.length} Like</Button>
-            <Button variation="primary" onClick={handleComment}>Comments</Button>
-          </Flex>
-        </Flex>
-      </Card>
-    </View>
+
+<div className="custom-card">
+  <div className="card__img" style={{ backgroundImage: `url(${card.card.imageurl})` }}></div>
+  <div className="card__info-hover">
+    <svg className="card__like" viewBox="0 0 24 24">
+      {/* ...SVG path here... */}
+    </svg>
+    <span className="card__time" onClick={handleLike} >{card.card.likes.length} Likes</span>
+    <div className="card__clock-info">
+      <svg className="card__clock" viewBox="0 0 24 24">
+        {/* ...SVG path here... */}
+      </svg>
+      <span className="card__time">15 min</span>
+    </div>
+  </div>
+  <a className="card_link" >
+    <div className="card__img--hover" style={{ backgroundImage: `url(${card.card.imageurl})` }}></div>
+  </a>
+  <div className="card__info">
+    <Badge size="small" variation="info">
+      {card.card.tags}
+    </Badge>
+    <Heading as="h3" marginBottom="space30">
+      {card.card.title}
+    </Heading>
+    <Text as="p" marginBottom="space20">
+      {card.card.description}
+    </Text>
+    
+  </div>
+</div>
+
     )
 }
