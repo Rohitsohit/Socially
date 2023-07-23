@@ -11,7 +11,6 @@ import {createUserData} from './graphql/mutations'
 import {listUserData } from './graphql/queries';
 import {SearchField} from '@aws-amplify/ui-react';
 import './css/navbar.css'
-
 import { useEffect,useState } from 'react';
 import FriendRequest from './components/FriendRequest';
 function App({signOut,user}) { 

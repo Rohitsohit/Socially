@@ -39,9 +39,6 @@ export default function Comment(comment) {
         fontStyle="normal"
         textDecoration="none"
         width="30vw"> {commentObj.username}</Text>
-        <>
-
-        </>
     </View>
   )
 }

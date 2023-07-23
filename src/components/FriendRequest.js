@@ -34,9 +34,7 @@ export default function FriendRequest(user) {
     }
 
     const removeFriend = async(e,name)=>{
-
         e.preventDefault();
-        console.log(name);
       const indexToRemove = user.user.friendRequest.indexOf(name);
 
       if (indexToRemove !== -1) {

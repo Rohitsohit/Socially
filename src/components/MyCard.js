@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Card,Image,View,Flex, Badge,Text} from '@aws-amplify/ui-react';
 import { useNavigate } from 'react-router-dom';
 import { Amplify,API } from 'aws-amplify';
@@ -7,14 +7,13 @@ import config from '../aws-exports'
 Amplify.configure(config)
 export default function MyCard(card) {
 
+  console.log(card)
   const history = useNavigate();
 
   const handleComment=()=>{
-        
      if(card.email.username){
       history(`/comment/${card.card.id}/${card.email.username}`);
      }
-    
   }
 
   const handleLike =async(e)=>{
@@ -99,8 +98,7 @@ export default function MyCard(card) {
   <Text >{card.card.description}</Text>
 </Flex>
    <Flex direction="row" justifyContent="space-around">
-    <Text onClick={handleLike}>{} Like</Text>
-    
+    <Text onClick={handleLike}>{card.card.likes.length} Like</Text>
     <Text onClick={handleComment} >Comment</Text>
   </Flex>
       </View>
