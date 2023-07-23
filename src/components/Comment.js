@@ -7,9 +7,6 @@ export default function Comment(comment) {
 
   return (
     
-      
-
-
 <View
   as="div"
   ariaLabel="View example"
