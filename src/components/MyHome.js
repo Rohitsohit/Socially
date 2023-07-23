@@ -44,28 +44,18 @@ import FaceLogin from './FaceLogin';
    <div className="left-sidebar">
      <h3>Friend List</h3>
      <ul>
-       
-
     <MyFriends username={userLogin}></MyFriends>
      </ul>
    </div>
-   <div className="center-content">
+   <div className="center-content" >
      <h3>Posts</h3>
      <MyCards username={userLogin.user}></MyCards>
-     {/* {posts.map((post) => (
-       <div key={post.id} className="post-item">
-         <h4>{post.title}</h4>
-         <p>{post.content}</p>
-       </div>
-     ))} */}
+     
    </div>
    <div className="right-sidebar">
-     <h3>Friends to Message</h3>
+     <h3>Message</h3>
      <ul>
-       Friends to message
-       {/* {friendsToMessage.map((friend) => (
-         <li key={friend}>{friend}</li>
-       ))} */}
+        Message
      </ul>
    </div>
  </div>

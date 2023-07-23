@@ -181,3 +181,57 @@
     color: #333; /* Change the font color to your preferred value */
   }
   
+
+  
+  .card__like-text-bottom,
+  .card__comment-text-bottom {
+    position: absolute;
+    bottom: 10px; /* Adjust the vertical position as needed */
+    padding: 5px 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+  
+  .card__like-text-bottom {
+    left: 10px; /* Adjust the horizontal position for the "like" text */
+  }
+  
+  .card__comment-text-bottom {
+    right: 10px; /* Adjust the horizontal position for the "comment" text */
+  }
+  
+/* ...Previous styles... */
+
+/* Add flexbox styles for the action container */
+.card__action-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
+}
+
+.card__like-text-bottom,
+.card__comment-text-bottom {
+  padding: 5px 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.card__like-text-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.card__comment-text-bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+

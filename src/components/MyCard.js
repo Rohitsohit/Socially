@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,Image,View,Heading, Flex, Badge, Text, Button, useTheme,} from '@aws-amplify/ui-react';
+import {Card,Image,View,Flex, Badge,Text} from '@aws-amplify/ui-react';
 import { useNavigate } from 'react-router-dom';
 import { Amplify,API } from 'aws-amplify';
 import { updateFromData } from '../graphql/mutations';
@@ -8,7 +8,6 @@ Amplify.configure(config)
 export default function MyCard(card) {
 
   const history = useNavigate();
-  const { tokens } = useTheme();
 
   const handleComment=()=>{
         
@@ -56,43 +55,56 @@ export default function MyCard(card) {
       console.log("please login");
     } 
   }
+
+
+  
     
   return (
         
+<Card
+   
+      maxWidth="21rem"
+      variation="elevated"
+      boxShadow="2px 2px 2px 2px var(--amplify-colors-neutral-60)"
+      marginTop="relative.large"
+      marginLeft="xxxl"
+    >
+      <Image
+        src={card.card.imageurl}
+        alt="Card Image"
+       
+      />
 
+
+      <View >
+      <Badge
+          variation="success"
+          padding="1rem">
+          {card.card.tags}
+        </Badge>
+        <Flex direction="column" padding="1rem">
       
+        <Text
+            variation="primary"
+            as="p"
+            lineHeight=""
+            fontWeight={400}
+            fontSize="1.5em"
+            fontStyle="normal"
+            width="25vw"
+          >
+           {card.card.title}
+        </Text>
 
-
-<div className="custom-card">
-  <div className="card__img" style={{ backgroundImage: `url(${card.card.imageurl})` }}></div>
-  <div className="card__info-hover">
-    <svg className="card__like" viewBox="0 0 24 24">
-      {/* ...SVG path here... */}
-    </svg>
-    <span className="card__time" onClick={handleLike} >{card.card.likes.length} Likes</span>
-    <div className="card__clock-info">
-      <svg className="card__clock" viewBox="0 0 24 24">
-        {/* ...SVG path here... */}
-      </svg>
-      <span className="card__time">15 min</span>
-    </div>
-  </div>
-  <a className="card_link" >
-    <div className="card__img--hover" style={{ backgroundImage: `url(${card.card.imageurl})` }}></div>
-  </a>
-  <div className="card__info">
-    <Badge size="small" variation="info">
-      {card.card.tags}
-    </Badge>
-    <Heading as="h3" marginBottom="space30">
-      {card.card.title}
-    </Heading>
-    <Text as="p" marginBottom="space20">
-      {card.card.description}
-    </Text>
+  <Text >{card.card.description}</Text>
+</Flex>
+   <Flex direction="row" justifyContent="space-around">
+    <Text onClick={handleLike}>{} Like</Text>
     
-  </div>
-</div>
+    <Text onClick={handleComment} >Comment</Text>
+  </Flex>
+      </View>
+    </Card>
 
     )
 }

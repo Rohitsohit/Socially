@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import {API } from 'aws-amplify';
 import {getFromData} from '../graphql/queries'
-import { Text ,Divider} from '@aws-amplify/ui-react';
-import {Heading,Badge,useTheme} from '@aws-amplify/ui-react';
+
+import {Card,Image,View,Flex, Badge,Text,TextField,Divider,Button} from '@aws-amplify/ui-react';
+
 import Comment from './Comment';
 import {updateFromData} from '../graphql/mutations'
 import '../css/comment.css'
@@ -11,7 +12,6 @@ export default function MyComments() {
   
   const { postId, name } = useParams();
   const [post, setpost] = useState();
-  const { tokens } = useTheme();
   var commentObj = {
     message:"",
     username:""
@@ -47,99 +47,85 @@ const handleSend = async (e) => {
 }
 
   return (
-    // <>
-    //   {!post ? (
-    //     <p>loading..</p>
-    //   ) : (
-    //     <>
-    //       <View backgroundColor="gray90" padding="space60">
-    //         <Card className="circular-card">
-    //           <Image alt="Road to Milford Sound" src={post.imageurl} width="100%" />
-    //           <div className="card-content">
-    //             <Badge size="small" variation="info">
-    //               {post.tags}
-    //             </Badge>
-    //             <Badge size="small" variation="success">
-    //               Verified
-    //             </Badge>
-    //             <Heading as="h3" marginBottom="space30">
-    //               {post.title}
-    //             </Heading>
-    //             <Text as="p" marginBottom="space20">
-    //               {post.description}
-    //             </Text>
-    //             <Text as="p" variation="primary" marginBottom="space20">
-    //               {totalLikes} Likes
-    //             </Text>
-    //           </div>
-    //         </Card>
-    //       </View>
-
-    //       <Flex gap="1rem" direction="column">
-    //         <TextField
-    //           placeholder="Add a comment..."
-    //           onChange={(e) => {
-    //             commentObj.message = e.target.value;
-    //             commentObj.username = name;
-    //           }}
-    //           outerEndComponent={<Button onClick={handleSend}>Post</Button>}
-    //         />
-    //       </Flex>
-    //       <Divider size="large" orientation="horizontal" />
-    //       {!post.comments ? (
-    //         <p>Add a comment...</p>
-    //       ) : (
-    //         post.comments.map((comment, index) => (
-    //           <Comment key={index} props={comment} />
-    //         ))
-    //       )}
-    //     </>
-    //   )}
-    // </>
-
-<>
+<View marginLeft="28em"
+  marginTop="large"
+>
   {!post ? (
     <p>loading..</p>
   ) : (
     <>
-      <div className="custom-card">
-        <div className="card__img" style={{ backgroundImage: `url(${post.imageurl})` }}></div>
-        <div className="card__info-hover">
-          <svg className="card__like" viewBox="0 0 24 24">
-            {/* ...SVG path here... */}
-          </svg>
-          <span className="card__time">{totalLikes} Likes</span>
-          <div className="card__clock-info">
-            <svg className="card__clock" viewBox="0 0 24 24">
-              {/* ...SVG path here... */}
-            </svg>
-            <span className="card__time">15 min</span>
-          </div>
-        </div>
-        <a className="card_link" >
-          <div className="card__img--hover" style={{ backgroundImage: `url(${post.imageurl})` }}></div>
-        </a>
-        <div className="card__info">
-          <Badge size="small" variation="info">
-            {post.tags}
-          </Badge>
-          <Badge size="small" variation="success">
-            Verified
-          </Badge>
-          <Heading as="h3" marginBottom="space30">
-            {post.title}
-          </Heading>
-          <Text as="p" marginBottom="space20">
-            {post.description}
-          </Text>
-          <Text as="p" variation="primary" marginBottom="space20">
-            {totalLikes} Likes
-          </Text>
-        </div>
-      </div>
-    </>
-  )}
-</>
+      <Card
+   variation="default"
+   maxWidth="21rem"
+  
+   boxShadow="2px 2px 2px 2px var(--amplify-colors-neutral-60)"
+
+ >
+   <Image
+     src={post.imageurl}
+     alt="Card Image"
+    
+   />
+
+
+   <View >
+   <Badge
+       variation="success"
+       padding="1rem">
+       {post.tags}
+     </Badge>
+     <Flex direction="column" padding="1rem">
+   
+     <Text
+         variation="primary"
+         as="p"
+         lineHeight=""
+         fontWeight={400}
+         fontSize="1.5em"
+         fontStyle="normal"
+         width="25vw"
+       >
+        {post.title}
+     </Text>
+
+<Text >{post.description}</Text>
+</Flex>
+<Flex direction="row" justifyContent="space-around">
+ <Text>{totalLikes} Like</Text>
+</Flex>
+   </View>
+ </Card>
+
+        <Flex gap="1rem" direction="column">
+             <TextField
+             maxWidth="21rem"
+            
+            
+               placeholder="Add a comment..."
+               onChange={(e) => {
+                 commentObj.message = e.target.value;
+                 commentObj.username = name;
+               }}
+               outerEndComponent={<Button onClick={handleSend}>Post</Button>}
+             
+             />
+           </Flex>
+           <Divider size="large"
+          orientation="horizontal"
+          maxWidth="21rem"/>
+           {!post.comments ? (
+             <p>Add a comment...</p>
+           ) : (
+             post.comments.map((comment, index) => (
+               <Comment key={index} props={comment} />
+             ))
+         )}
+         </>
+       )}
+
+   
+  
+</View>
 
 
 
