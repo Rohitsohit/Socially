@@ -57,7 +57,11 @@ export const onCreateUserData = /* GraphQL */ `
     onCreateUserData(filter: $filter) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
       createdAt
       updatedAt
@@ -70,7 +74,11 @@ export const onUpdateUserData = /* GraphQL */ `
     onUpdateUserData(filter: $filter) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
       createdAt
       updatedAt
@@ -83,8 +91,63 @@ export const onDeleteUserData = /* GraphQL */ `
     onDeleteUserData(filter: $filter) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onCreateChat = /* GraphQL */ `
+  subscription OnCreateChat($filter: ModelSubscriptionChatFilterInput) {
+    onCreateChat(filter: $filter) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateChat = /* GraphQL */ `
+  subscription OnUpdateChat($filter: ModelSubscriptionChatFilterInput) {
+    onUpdateChat(filter: $filter) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteChat = /* GraphQL */ `
+  subscription OnDeleteChat($filter: ModelSubscriptionChatFilterInput) {
+    onDeleteChat(filter: $filter) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
       createdAt
       updatedAt
       __typename

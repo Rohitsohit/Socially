@@ -48,7 +48,11 @@ export const getUserData = /* GraphQL */ `
     getUserData(id: $id) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
       createdAt
       updatedAt
@@ -66,8 +70,54 @@ export const listUserData = /* GraphQL */ `
       items {
         id
         user
-        friends
+        friends {
+          name
+          MessageID
+          __typename
+        }
         friendRequest
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const getChat = /* GraphQL */ `
+  query GetChat($id: ID!) {
+    getChat(id: $id) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listChats = /* GraphQL */ `
+  query ListChats(
+    $filter: ModelChatFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listChats(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        messages {
+          sender
+          content
+          timestamp
+          __typename
+        }
         createdAt
         updatedAt
         __typename

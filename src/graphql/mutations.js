@@ -69,7 +69,11 @@ export const createUserData = /* GraphQL */ `
     createUserData(input: $input, condition: $condition) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
       createdAt
       updatedAt
@@ -85,7 +89,11 @@ export const updateUserData = /* GraphQL */ `
     updateUserData(input: $input, condition: $condition) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
       createdAt
       updatedAt
@@ -101,8 +109,72 @@ export const deleteUserData = /* GraphQL */ `
     deleteUserData(input: $input, condition: $condition) {
       id
       user
-      friends
+      friends {
+        name
+        MessageID
+        __typename
+      }
       friendRequest
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const createChat = /* GraphQL */ `
+  mutation CreateChat(
+    $input: CreateChatInput!
+    $condition: ModelChatConditionInput
+  ) {
+    createChat(input: $input, condition: $condition) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateChat = /* GraphQL */ `
+  mutation UpdateChat(
+    $input: UpdateChatInput!
+    $condition: ModelChatConditionInput
+  ) {
+    updateChat(input: $input, condition: $condition) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteChat = /* GraphQL */ `
+  mutation DeleteChat(
+    $input: DeleteChatInput!
+    $condition: ModelChatConditionInput
+  ) {
+    deleteChat(input: $input, condition: $condition) {
+      id
+      name
+      messages {
+        sender
+        content
+        timestamp
+        __typename
+      }
       createdAt
       updatedAt
       __typename

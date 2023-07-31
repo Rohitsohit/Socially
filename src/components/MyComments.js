@@ -66,8 +66,6 @@ const handleSend = async (e) => {
      alt="Card Image"
     
    />
-
-
    <View >
    <Badge
        variation="success"
@@ -99,15 +97,12 @@ const handleSend = async (e) => {
         <Flex gap="1rem" direction="column">
              <TextField
              maxWidth="21rem"
-            
-            
                placeholder="Add a comment..."
                onChange={(e) => {
                  commentObj.message = e.target.value;
                  commentObj.username = name;
                }}
                outerEndComponent={<Button onClick={handleSend}>Post</Button>}
-             
              />
            </Flex>
            <Divider size="large"

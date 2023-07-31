@@ -35,7 +35,7 @@ export default function Comment(comment) {
         as="strong"
         lineHeight="1.5em"
         fontWeight={500}
-        fontSize="1em"
+        fontSize="0.8em"
         fontStyle="normal"
         textDecoration="none"
         width="30vw"> {commentObj.username}</Text>

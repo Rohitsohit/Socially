@@ -13,9 +13,30 @@ type fromData @model{
  imageurl:String
 }
 
+type FriendMessage{
+  name: String,
+  MessageID:String
+}
+
 type userData @model{
  id : ID!
  user:String
- friends : [String]!
+ friends : [FriendMessage]!
  friendRequest :[String]!
 }
+
+type Message {
+  sender: String!
+  content: String!
+  timestamp: String!
+}
+
+type Chat  @model  {
+  id:ID!
+  name: String!
+  messages: [Message]!
+}
+
+
+
+
