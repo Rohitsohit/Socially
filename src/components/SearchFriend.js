@@ -76,7 +76,7 @@ export default function SearchFriend(user) {
       {!userSearched ? (
         <></>
       ) : (
-        <Expander height="20em">
+      
         <View
       display="flex"
       alignItems="center"
@@ -133,7 +133,7 @@ export default function SearchFriend(user) {
 
       
     </View>
-    </Expander>
+   
 
 
 

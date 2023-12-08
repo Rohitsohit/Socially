@@ -58,12 +58,8 @@ const fetchUser = async ()=>{
       setUserLogin(foundUser);
       setUserCreated(true); 
     } else {
-      
       await createUser();  // creating user 
-
     }
-
-    
 }
 
   return (
@@ -140,15 +136,15 @@ const fetchUser = async ()=>{
       </Routes>
 
       <Routes>
-      <Route path="/generate" exact element={!userLogin?(<>...</>):(<GenerateImage></GenerateImage>) }/>
+      <Route path="/generate" exact element={!userLogin?(<>...</>):(<NavbarLayout><GenerateImage></GenerateImage></NavbarLayout>) }/>
       </Routes>
 
       <Routes>
-      <Route path="/message/:name" exact element={<UserMessage user={userLogin} ></UserMessage> }/>
+      <Route path="/message/:name/:id" exact element={<NavbarLayout><UserMessage user={userLogin} ></UserMessage></NavbarLayout> }/>
       </Routes>
 
       <Routes>
-      <Route path="/comment/:postId/:name" exact element={<MyComments/>}/>
+      <Route path="/comment/:postId/:name" exact element={<NavbarLayout><MyComments/></NavbarLayout>}/>
       </Routes> 
       </switch>
       </Router>

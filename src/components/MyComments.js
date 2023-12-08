@@ -47,7 +47,7 @@ const handleSend = async (e) => {
 }
 
   return (
-<View marginLeft="28em"
+<View marginLeft="10em"
   marginTop="large"
 >
   {!post ? (
@@ -57,14 +57,11 @@ const handleSend = async (e) => {
       <Card
    variation="default"
    maxWidth="21rem"
-  
    boxShadow="2px 2px 2px 2px var(--amplify-colors-neutral-60)"
-
  >
    <Image
      src={post.imageurl}
-     alt="Card Image"
-    
+     alt="Card Image"   
    />
    <View >
    <Badge

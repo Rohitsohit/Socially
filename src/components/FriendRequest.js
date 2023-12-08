@@ -3,8 +3,9 @@ import { View, Text } from '@aws-amplify/ui-react';
 import { API } from 'aws-amplify';
 import { updateUserData } from '../graphql/mutations';
 import { listUserData } from '../graphql/queries';
-
+import {createChat,updateChat} from "../graphql/mutations"
 export default function FriendRequest(user) {
+  
   const [request, setRequest] = useState([]);
 
   useEffect(() => {
@@ -60,9 +61,9 @@ export default function FriendRequest(user) {
      //remove friend from the list.
    removeFriend(e, friend);
 
+   //creating message id : 
+  await creatingMessageID(friend);
   };
-
-
 
   const removeFriend = async (e, name) => {
     e.preventDefault();
@@ -79,7 +80,47 @@ export default function FriendRequest(user) {
     setRequest(response.data.updateUserData.friendRequest);
   };
  
+ const  creatingMessageID = async(friendName)=>{
+
+            const inputForm = {
+          name :friendName,
+          messages : [
+            {
+            sender :user.user.user, 
+            content :"",
+            timestamp: new Date().toISOString(),
+            }
+          ]
+        }
+       const res= await API.graphql({query:createChat,variables:{input:inputForm}});  
   
+      
+    //adding message id to user friend list
+    const updatedUserFriendID = {
+      id: user.user.id,
+      friends: user.user.friends.map(({ name, MessageID }) => ({
+        name,
+        MessageID: name === friendName ? res.data.createChat.id : MessageID,
+      }))
+    };
+    const res1= await API.graphql({ query: updateUserData, variables: { input: updatedUserFriendID } });  
+    console.log("Response 1 ",res1)
+
+
+    // adding message Id in friends list of friend of a user.
+    const response = await API.graphql({ query: listUserData });
+    const foundUser = response.data.listUserData.items.find(obj => obj.user === friendName);
+ 
+    const updatedFoundFriendId = {
+            id: foundUser.id,
+            friends: foundUser.friends.map(({ name, MessageID }) => ({
+              name,
+              MessageID: name === user.user.user ? res.data.createChat.id : MessageID,
+            }))
+          };
+     const res2=await API.graphql({ query: updateUserData, variables: { input: updatedFoundFriendId } });
+   
+  }
 
   return (
     <View

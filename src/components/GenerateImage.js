@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Configuration,OpenAIApi } from 'openai'
 import { TextField,Button,Image } from '@aws-amplify/ui-react'
 const configuration = new Configuration({
@@ -7,44 +7,45 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default function GenerateImage() {
-    const [userPrompt, setUserPrompt] = useState("");
-    const [size, setsize] = useState("256x256");
-    const [imageUrl, setimageUrl] = useState("");
-
-    const generateImage = async(e)=>{
-
-            const imageParameters = {
-                prompt : userPrompt,
-                n:parseInt(1),
-                size:size,
-            }
-            console.log(imageParameters)
-            const response = await openai.createImage({
-                prompt: "a white siamese cat",
-                n: 1,
-                size: "1024x1024",
-              });
-            const urlData = response.data.data[0].url;
-            
-            setimageUrl(urlData);
-          
-
-
-    }
+    const [inputValue, setInputValue] = useState('');
+  const [url, seturl] = useState("");
+  const generateImage = () => {
+    const OPENAI_API_KEY ="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";
+    console.log(inputValue);
+    fetch('https://api.openai.com/v1/images/generations', {
+      method: "POST",
+      body: JSON.stringify({
+        "prompt": inputValue,
+        "n": 1,
+        "size": "1024x1024"
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${OPENAI_API_KEY} ` // Use your API key
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      seturl(data.data[0].url);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
 
   return (
     <>
-    <TextField label="Descirption" width="18em" onChange={(e)=>setUserPrompt(e.target.value)} ></TextField>
-    <TextField label="size" width="18em" onChange={(e)=>setsize(e.target.value)}></TextField>
+    <TextField label="Descirption" width="18em" onChange={(e)=>setInputValue(e.target.value)} ></TextField>
     <Button onClick={generateImage}>Generate Image</Button>
-    {imageUrl && <Image
-      width="100%"
-      height="100%"
+    {url &&  <Image
+      width="50%"
+      height="50%"
       objectFit="cover"
       objectPosition="50% 50%"
-      src={imageUrl}
-      alt="AI"
-    /> }
+      src={url}
+      alt="Glittering stream with old log, snowy mountain peaks
+    tower over a green field."
+    />}
     </>
   )
 }
