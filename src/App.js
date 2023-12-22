@@ -66,55 +66,54 @@ const fetchUser = async ()=>{
     <>
 
 
-   <Flex flexDirection="column" alignItems="center" justifyContent="center">
-      {/* FOMO (Left Corner) */}
-      <View
-        style={{
-          backgroundColor: '#6045ba',
-          color: 'white',
-          cursor: 'pointer',
-          fontSize: '1.3em',
-          marginTop: '10px',
-        }}
-        padding="0.5em 7em"
-      >
-          FOMO
-      </View>
+<Flex flexDirection="column" alignItems="center" justifyContent="center">
+    <View
+      style={{
+        backgroundColor: '#6045ba',
+        color: 'white',
+        cursor: 'pointer',
+        fontSize: '1.3em',
+        marginTop: '10px',
+      }}
+      padding="0.5em 7em"
+    >
+      socially
+    </View>
 
-      {/* Search Field (Centered) */}
-      <View width={['80%', '60%', '40%', '30%']}  marginTop="10px">
-      <SearchFriend  username={user.username} />
-              </View>
+    {/* Search Field (Centered) */}
+    <View width={['80%', '60%', '40%', '30%']} marginTop="10px" position="relative">
+      <SearchFriend username={user.username} />
+    </View>
 
-      {/* Button (Right Corner) */}
-      <View
-        style={{
-          backgroundColor: '#6045ba',
-          color: 'white',
-          cursor: 'pointer',
-          fontSize: '1.3em',
-          marginTop: '10px',
-          marginLeft: 'auto',
-        }}
-        padding="0.5em 1em"
-      >
-        Hi, {user.username}
-      </View>
-      <View
-        style={{
-          backgroundColor: '#6045ba',
-          color: 'white',
-          cursor: 'pointer',
-          fontSize: '1.3em',
-          marginTop: '10px',
-          marginLeft: 'auto',
-        }}
-        onClick={signOut}
-        padding="0.5em 1em"
-      >
-        signOut
-      </View>
-    </Flex>
+    {/* Button (Right Corner) */}
+    <View
+      style={{
+        backgroundColor: '#6045ba',
+        color: 'white',
+        cursor: 'pointer',
+        fontSize: '1.3em',
+        marginTop: '10px',
+        marginLeft: 'auto',
+      }}
+      padding="0.5em 1em"
+    >
+      Hi, {user.username}
+    </View>
+    <View
+      style={{
+        backgroundColor: '#6045ba',
+        color: 'white',
+        cursor: 'pointer',
+        fontSize: '1.3em',
+        marginTop: '10px',
+        marginLeft: 'auto',
+      }}
+      onClick={signOut}
+      padding="0.5em 1em"
+    >
+      signOut
+    </View>
+  </Flex>
 
 
      <Router>

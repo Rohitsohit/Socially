@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { API } from 'aws-amplify';
 import { listUserData } from '../graphql/queries';
 import { updateUserData } from '../graphql/mutations';
-import { Expander, SearchField, Text, View} from '@aws-amplify/ui-react';
+import { Expander, SearchField, Text, View } from '@aws-amplify/ui-react';
 export default function SearchFriend(user) {
   const [userSearched, setUserSearched] = useState(null);
   const [userLogin, setUserLogin] = useState(null);
@@ -36,7 +36,7 @@ export default function SearchFriend(user) {
         setUserSearched(foundUser.user);
         setUserLogin(loginUser);
       } else {
-      
+
         setUserSearched(null); // Reset userSearched when no user is found
       }
     } catch (error) {
@@ -56,7 +56,7 @@ export default function SearchFriend(user) {
 
       try {
         const response = await API.graphql({ query: updateUserData, variables: { input: updatedUser } });
-       
+
       } catch (error) {
         console.error('Error updating user data:', error);
         // Implement error handling and display feedback to the user
@@ -73,18 +73,15 @@ export default function SearchFriend(user) {
         onClick={handleSearch}
         hasSearchButton={false}
       />
-      {!userSearched ? (
-        <></>
-      ) : (
-      
-        <View
+      {userSearched && (
+    <View
       display="flex"
       alignItems="center"
       marginTop="22px"
       marginLeft="29px"
       style={{
-        marginBottom: '10px', // Add a gap between each user element
-        flexWrap: 'wrap', // Allow items to wrap to the next line on smaller screens
+        marginBottom: '10px',
+        flexWrap: 'wrap',
       }}
     >
       {/* Smaller Circle with Image */}
@@ -120,25 +117,24 @@ export default function SearchFriend(user) {
         style={{
           color: '#9691ba',
           cursor: 'pointer',
-          marginBottom: '5px', // Add a gap between the username and SVG icon
-          flexGrow: '1', // Allow the username to take up available space
+          marginBottom: '5px',
+          flexGrow: '1',
         }}
       >
         {userSearched}
       </Text>
-      
-      <svg xmlns="http://www.w3.org/2000/svg" onClick={handleAddFriend} height="1.25em" viewBox="0 0 640 512" style={{ marginRight: '99px',borderColor:"red",fill:"#9691ab" }}>
-        //     <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" /></svg>
 
-
-      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        onClick={handleAddFriend}
+        height="1.25em"
+        viewBox="0 0 640 512"
+        style={{ marginRight: '99px', borderColor: 'red', fill: '#9691ab' }}
+      >
+        <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+      </svg>
     </View>
-   
-
-
-
-
-      )}
+  )}
     </>
   );
 }

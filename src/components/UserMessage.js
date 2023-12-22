@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify';
 import { updateChat } from "../graphql/mutations"
 import { listChats } from '../graphql/queries';
@@ -11,10 +11,12 @@ export default function UserMessage(userLogin) {
   const [oldChat, setOldChat] = useState(null);
   const [messageData, setMessageData] = useState([]);
   const [subData, setsubData] = useState([]);
-
+  const messegeEndRef = useRef(null);
   useEffect(() => {
     fetchMessage(friendName.id);
+
     
+
     const subscription = API.graphql(graphqlOperation(onUpdateChat)).subscribe({
       next: (eventData) => {
         setsubData(eventData.value.data.onUpdateChat.messages)
@@ -34,6 +36,9 @@ export default function UserMessage(userLogin) {
   }, [subData])
 
 
+  useEffect(() => {
+    messegeEndRef.current?.scrollIntoView();
+  }, [messageData])
   
 
   const fetchMessage = async (Id) => {
@@ -107,7 +112,8 @@ export default function UserMessage(userLogin) {
                 <p class="small text-muted">{chat.sender}</p>
               </div>
             </div>
-            )}           
+            )}  
+            <div ref={messegeEndRef}></div>         
          </>
           ))
          )}             
