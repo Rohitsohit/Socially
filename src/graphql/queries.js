@@ -70,11 +70,6 @@ export const listUserData = /* GraphQL */ `
       items {
         id
         user
-        friends {
-          name
-          MessageID
-          __typename
-        }
         friendRequest
         createdAt
         updatedAt
@@ -112,12 +107,6 @@ export const listChats = /* GraphQL */ `
       items {
         id
         name
-        messages {
-          sender
-          content
-          timestamp
-          __typename
-        }
         createdAt
         updatedAt
         __typename

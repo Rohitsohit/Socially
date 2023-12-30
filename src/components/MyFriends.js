@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { createUserData } from '../graphql/mutations'
 import { API } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
-import { Avatar, Text, View } from '@aws-amplify/ui-react';
+import { Text, View } from '@aws-amplify/ui-react';
 export default function MyFriends(user) {
   const history = useNavigate();
   const handleprofile = (name,id)=>{
-  
     history(`/message/${name}/${id}`);
   }
-if(user){
- 
-}
+  if(user.username){
+    console.log(user.username)
+  }
+
   return (
     <>
-      {!user.username ? (<>Loading..</>) : (
+      {!user.username.friends ? (<> No friend </>) : (
         user.username.friends.map(friend => (
           
           <View
