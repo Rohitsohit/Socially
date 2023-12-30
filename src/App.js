@@ -1,4 +1,4 @@
-import {withAuthenticator,Alert,View,Flex } from '@aws-amplify/ui-react';
+import {withAuthenticator,View,Flex } from '@aws-amplify/ui-react';
 import './App.css';
 import { API} from 'aws-amplify';
 import '@aws-amplify/ui-react/styles.css';
@@ -61,7 +61,9 @@ const fetchUser = async ()=>{
       await createUser();  // creating user 
     }
 }
-
+    if(user){
+      console.log(user);
+    }
   return (
     <>
 

@@ -8,9 +8,6 @@ export default function MyFriends(user) {
   const handleprofile = (name,id)=>{
     history(`/message/${name}/${id}`);
   }
-  if(user.username){
-    console.log(user.username)
-  }
 
   return (
     <>

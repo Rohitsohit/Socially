@@ -12,6 +12,7 @@ export default function FriendRequest(user) {
     setRequest(user.user.friendRequest);
   }, []);
 
+  
 
   const handleAccept = async (e, friend) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ export default function FriendRequest(user) {
       name:friend,
       MessageID : "",
     }
-
+    
      user.user.friends.push(addFriend);
 
     const updatedUser = {
@@ -36,7 +37,7 @@ export default function FriendRequest(user) {
        await API.graphql({ query: updateUserData, variables: { input: updatedUser } });
  
 
-    // //add friend who make a  request.
+    //add friend who make a  request.
     const response = await API.graphql({ query: listUserData });
     const foundUser = response.data.listUserData.items.find(obj => obj.user === friend);
     
